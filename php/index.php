@@ -22,6 +22,14 @@ $lista = $listaDAO->all();
         </h1>
     </header>
     <section class="box">
+    <section class="add">
+        <form action="" method="get">
+            <input type="text" name="tarefa" id="">
+            <input type="text" name="custo" id="">
+            <input type="date" name="data" id="">
+            <button type="submit">Adicionar</button>
+        </form>
+    </section>
         <table>
             <tr>
                 <th>ID</th>
@@ -38,19 +46,26 @@ $lista = $listaDAO->all();
                     <td><?= $tarefa->getCusto(); ?></td>
                     <td><?= $tarefa->getData(); ?></td>
                     <td onclick="edicao(<?=$tarefa->getId(); ?>)"><?= "Editar" ?></td>
-                    <td><?= "Apagar" ?></td>
+                    <td onclick="apagar(<?=$tarefa->getId(); ?>)"><?= "Apagar" ?></td>
                 </tr>
             <?php endforeach;?>
         </table>
 
         <section class="edicao">
             <form action="edicao.php" method="get">
-                <input type="text" name="" id="identificao" readonly>
+                <input type="text" name="id" id="identificao" readonly>
                 <input type="text" name="tarefa" id="" placeholder="Tarefa">
                 <input type="text" name="custo" id="" placeholder="Custo">
                 <input type="date" name="data" id="">
                 <button type="submit">Editar</button>
             </form>
+        </section>
+        <section class="apagar">
+            <p>Deseja apagar a tarefa?</p>
+            <section>
+                <div class="sim"><a href="">SIM</a></div>
+                <div class="nao">NÃO</div>
+            </section>
         </section>
     </section>
 

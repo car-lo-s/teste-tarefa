@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    text-decoration: none;
 }
 header{
     text-align: center;
@@ -15,8 +16,18 @@ header{
 .box th,td{
     padding: 10px 30px;
 }
-.edicao {
+
+.add{
+    padding: 20px;
+    width: 100%;
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.edicao {
+    display: none;
     flex-direction: column;
     align-items: center;
     width: 900px;
@@ -34,4 +45,19 @@ header{
 }
 .edicao button{
     padding: 10px 40px;
+}
+.apagar{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+.apagar section{
+    display: flex;
+    flex-direction: row;
+}
+.sim{
+    margin: 20px;
+}
+.nao{
+    margin: 20px;
 }

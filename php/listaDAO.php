@@ -27,4 +27,26 @@ class listaDAO{
             return $lista;
         }
     }
+    public function edicao($id,$novaTarefa,$novoCusto,$novaData){
+        $sql = $this->pdo->prepare("SELECT*FROM cad_tarefas WHERE id=:id");
+        $sql->bindValue(':id',$id);
+        $sql->execute();
+        if($sql->rowCount()>0){
+            $sql = $this->pdo->prepare("UPDATE cad_tarefas SET nome = :novaTarefa, custo = :novoCusto, data = :novaData WHERE id=:id");
+            $sql->bindValue(':id',$id);
+            $sql->bindValue(':novaTarefa',$novaTarefa);
+            $sql->bindValue(':novoCusto',$novoCusto);
+            $sql->bindValue(':novaData',$novaData);
+            $sql->execute();
+            header("Location: index.php");
+            exit;
+        }
+    }
+    public function apagar($id){
+        $sql = $this->pdo->prepare("DELETE FROM cad_tarefas WHERE id=:id");
+        $sql->bindValue(":id",$id);
+        $sql->execute();
+        header("Location: index.php");
+        exit;
+    }
 }
