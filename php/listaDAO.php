@@ -21,7 +21,7 @@ class listaDAO{
                 $tarefa->setNome($item['nome']);
                 $tarefa->setCusto($item['custo']);
                 $tarefa->setData($item['data']);
-                $tarefa->setOrdem($item['ordem']);
+                $tarefa->setOrdem($item['id']);
                 $lista[] = $tarefa;
             }
             return $lista;
@@ -48,5 +48,19 @@ class listaDAO{
         $sql->execute();
         header("Location: index.php");
         exit;
+    }
+    public function add($nome,$custo,$data){
+        $sql = $this->pdo->prepare("SELECT*FROM cad_tarefas WHERE nome = :nome");
+        $sql->bindValue(":nome",$nome);
+        $sql->execute();
+        if($sql->rowCount()==0){
+            $sql=$this->pdo->prepare("INSERT INTO cad_tarefas (nome,custo,data) VALUES(:nome,:custo,:data) ");
+            $sql->bindValue(":nome",$nome);
+            $sql->bindValue(":custo",$custo);
+            $sql->bindValue(":data",$data);
+            $sql->execute();
+            header("Location: index.php");
+            exit;
+        }
     }
 }

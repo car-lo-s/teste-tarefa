@@ -23,9 +23,9 @@ $lista = $listaDAO->all();
     </header>
     <section class="box">
     <section class="add">
-        <form action="" method="get">
-            <input type="text" name="tarefa" id="">
-            <input type="text" name="custo" id="">
+        <form action="adicionar.php" method="get">
+            <input type="text" name="tarefa" id="" placeholder="Nova tarefa: ">
+            <input type="text" name="custo" id="" placeholder="Custo:">
             <input type="date" name="data" id="">
             <button type="submit">Adicionar</button>
         </form>
@@ -36,6 +36,7 @@ $lista = $listaDAO->all();
                 <th>Tarefa</th>
                 <th>Custo</th>
                 <th>Data</th>
+                <!-- <th>Ordem</th>   -->
                 <th>Editar</th>
                 <th>Apagar</th>
             </tr>
@@ -43,14 +44,15 @@ $lista = $listaDAO->all();
                 <tr>
                     <td><?= $tarefa->getId(); ?></td>
                     <td><?= $tarefa->getNome(); ?></td>
-                    <td><?= $tarefa->getCusto(); ?></td>
+                    <td class="dinheiro"><?= $tarefa->getCusto(); ?></td>
                     <td><?= $tarefa->getData(); ?></td>
-                    <td onclick="edicao(<?=$tarefa->getId(); ?>)"><?= "Editar" ?></td>
-                    <td onclick="apagar(<?=$tarefa->getId(); ?>)"><?= "Apagar" ?></td>
+                    <!-- <td><?= $tarefa->getOrdem(); ?></td> -->
+                    <td onclick="edicao(<?=$tarefa->getId(); ?>)" class="icone um"><img src="../img/pencil-square.svg" alt=""></td>
+                    <td onclick="apagar(<?=$tarefa->getId(); ?>)" class="icone dois"><img src="../img/trash.svg" alt=""></td>
                 </tr>
             <?php endforeach;?>
         </table>
-
+            
         <section class="edicao">
             <form action="edicao.php" method="get">
                 <input type="text" name="id" id="identificao" readonly>
@@ -64,7 +66,8 @@ $lista = $listaDAO->all();
             <p>Deseja apagar a tarefa?</p>
             <section>
                 <div class="sim"><a href="">SIM</a></div>
-                <div class="nao">NÃO</div>
+                
+                <div class="nao"><a href="">NÃO</a></div>
             </section>
         </section>
     </section>

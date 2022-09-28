@@ -14,7 +14,28 @@ header{
     align-items: center;
 }
 .box th,td{
-    padding: 10px 30px;
+    padding: 5px 30px;
+}
+.icone{
+    text-align: center;
+}
+.um img{
+    background-color: #3EACBE;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.um img:hover{
+    background-color: #138496;
+}
+.dois img{
+    background-color: #DC3545;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.dois img:hover{
+    background-color: #C82333;
 }
 
 .add{
@@ -24,8 +45,25 @@ header{
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    outline: none;
+    /* background-color: black; */
 }
 
+.add input{
+    padding: 10px;
+    outline: none;
+}
+.add button{
+    padding: 10px;
+    background-color: #18A2B8;
+    border-color: #18A2B8;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.add button:hover{
+    background-color: #138496;
+}
 .edicao {
     display: none;
     flex-direction: column;
@@ -45,19 +83,47 @@ header{
 }
 .edicao button{
     padding: 10px 40px;
+    background-color:#18A2B8 ;
+    color: black;
+    border-radius: 3px;
+    border-color: #18A2B8;
+}
+.edicao button:hover{
+    background-color: #138496;
 }
 .apagar{
     display: none;
+    position: absolute;
+    top: 200px;
+    background-color: white;
     flex-direction: column;
     align-items: center;
+    border: 2px solid black;
+    padding: 30px 80px;
+    border-radius: 5px;
 }
 .apagar section{
     display: flex;
     flex-direction: row;
 }
-.sim{
-    margin: 20px;
+.sim ,.nao{
+    margin: 30px 10px;
 }
-.nao{
-    margin: 20px;
+.sim a{
+    color: white;
+    background-color: #28A745;
+    padding: 12px;
+    border-radius: 3px;
+}
+.sim a:hover{
+    background-color: #218838;
+}
+.nao a{
+    background-color: #DC3545;
+    padding: 12px;
+    color: white;
+    border-radius: 3px;
+}
+.nao a:hover{
+    background-color: #C82333;
 }

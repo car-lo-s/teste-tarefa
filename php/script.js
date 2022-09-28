@@ -10,3 +10,10 @@ function apagar(a){
     let erase = document.querySelector('.apagar').style.display='flex'
     let form = document.querySelector('.edicao').style.display='none'
 }
+
+function alerta(){
+    let dinheiro = document.querySelector('.dinheiro').textContent
+    alert(dinheiro)
+}
+alerta()
+alerta()
