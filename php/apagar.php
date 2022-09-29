@@ -7,4 +7,7 @@ $id = filter_input(INPUT_GET,'id');
 
 if($id){
     $info->apagar($id);
+}else{
+    header("Location: index.php");
+        exit;
 }

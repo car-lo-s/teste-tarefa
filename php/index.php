@@ -41,10 +41,10 @@ $lista = $listaDAO->all();
                 <th>Apagar</th>
             </tr>
             <?php foreach ($lista as $tarefa):?>
-                <tr>
+                <tr id="row">
                     <td><?= $tarefa->getId(); ?></td>
                     <td><?= $tarefa->getNome(); ?></td>
-                    <td class="dinheiro"><?= $tarefa->getCusto(); ?></td>
+                    <td><?= $tarefa->getCusto(); ?></td>
                     <td><?= $tarefa->getData(); ?></td>
                     <!-- <td><?= $tarefa->getOrdem(); ?></td> -->
                     <td onclick="edicao(<?=$tarefa->getId(); ?>)" class="icone um"><img src="../img/pencil-square.svg" alt=""></td>

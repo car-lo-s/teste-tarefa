@@ -11,9 +11,12 @@ function apagar(a){
     let form = document.querySelector('.edicao').style.display='none'
 }
 
-function alerta(){
-    let dinheiro = document.querySelector('.dinheiro').textContent
-    alert(dinheiro)
+
+
+let linha = document.querySelectorAll('#row')
+
+for(let i of linha){
+    if(Number(i.cells[2].textContent)>1000){
+        i.classList.add('cor')
+    }
 }
-alerta()
-alerta()

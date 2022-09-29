@@ -32,12 +32,26 @@ class listaDAO{
         $sql->bindValue(':id',$id);
         $sql->execute();
         if($sql->rowCount()>0){
-            $sql = $this->pdo->prepare("UPDATE cad_tarefas SET nome = :novaTarefa, custo = :novoCusto, data = :novaData WHERE id=:id");
-            $sql->bindValue(':id',$id);
-            $sql->bindValue(':novaTarefa',$novaTarefa);
-            $sql->bindValue(':novoCusto',$novoCusto);
-            $sql->bindValue(':novaData',$novaData);
+            $sql = $this->pdo->prepare("SELECT*FROM cad_tarefas WHERE nome=:nome");
+            $sql->bindValue(':nome',$novaTarefa);
             $sql->execute();
+
+            if($sql->rowCount()==0){
+                $sql = $this->pdo->prepare("UPDATE cad_tarefas SET nome = :novaTarefa, custo = :novoCusto, data = :novaData WHERE id=:id");
+                $sql->bindValue(':id',$id);
+                $sql->bindValue(':novaTarefa',$novaTarefa);
+                $sql->bindValue(':novoCusto',$novoCusto);
+                $sql->bindValue(':novaData',$novaData);
+                $sql->execute();
+                header("Location: index.php");
+                exit;
+            }
+            // $sql = $this->pdo->prepare("UPDATE cad_tarefas SET nome = :novaTarefa, custo = :novoCusto, data = :novaData WHERE id=:id");
+            // $sql->bindValue(':id',$id);
+            // $sql->bindValue(':novaTarefa',$novaTarefa);
+            // $sql->bindValue(':novoCusto',$novoCusto);
+            // $sql->bindValue(':novaData',$novaData);
+            // $sql->execute();
             header("Location: index.php");
             exit;
         }

@@ -10,4 +10,7 @@ $data = filter_input(INPUT_GET,'data');
 
     if($tarefa && $custo && $data){
         $tarefa = $info->add($tarefa,$custo,$data);
+    }else{
+        header("Location: index.php");
+        exit;
     }

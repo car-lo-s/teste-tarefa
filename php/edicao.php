@@ -11,5 +11,8 @@ $novaData = filter_input(INPUT_GET,'data');
 if($id){
     if($novaData && $novoCusto && $novaData){
         $tarefa = $info->edicao($id,$novaTarefa,$novoCusto,$novaData);
+    }else{
+        header("Location: index.php");
+        exit;
     }
 }
