@@ -20,3 +20,25 @@ for(let i of linha){
         i.classList.add('cor')
     }
 }
+
+
+
+const row = document.querySelectorAll("[draggable='true']")
+const localSoltar = document.querySelector("table")
+
+
+function comecarArrastar(){
+    this.classList.add("arrastando")
+}
+function entrouSoltar(){
+    this.classList.add("fundo")
+    const elementoArrastado = document.querySelector(".arrastando")
+    this.appendChild(elementoArrastado)
+}
+
+
+row.forEach((row)=>{
+    row.addEventListener("dragstart",comecarArrastar)
+})
+
+localSoltar.addEventListener("dragover",entrouSoltar)

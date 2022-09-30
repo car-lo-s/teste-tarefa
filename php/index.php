@@ -22,16 +22,16 @@ $lista = $listaDAO->all();
         </h1>
     </header>
     <section class="box">
-    <section class="add">
+    <!-- <section class="add">
         <form action="adicionar.php" method="get">
             <input type="text" name="tarefa" id="" placeholder="Nova tarefa: ">
             <input type="text" name="custo" id="" placeholder="Custo:">
             <input type="date" name="data" id="">
             <button type="submit">Adicionar</button>
         </form>
-    </section>
-        <table>
-            <tr>
+    </section> -->
+        <table >
+            <tr id="titulo">
                 <th>ID</th>
                 <th>Tarefa</th>
                 <th>Custo</th>
@@ -41,7 +41,7 @@ $lista = $listaDAO->all();
                 <th>Apagar</th>
             </tr>
             <?php foreach ($lista as $tarefa):?>
-                <tr id="row">
+                <tr id="row" draggable="true">
                     <td><?= $tarefa->getId(); ?></td>
                     <td><?= $tarefa->getNome(); ?></td>
                     <td><?= $tarefa->getCusto(); ?></td>
@@ -52,15 +52,25 @@ $lista = $listaDAO->all();
                 </tr>
             <?php endforeach;?>
         </table>
+        <section class="add">
+        <form action="adicionar.php" method="get">
+            <input type="text" name="tarefa" id="" placeholder="Nova tarefa: ">
+            <input type="text" name="custo" id="" placeholder="Custo:">
+            <input type="date" name="data" id="">
+            <button type="submit">Adicionar</button>
+        </form>
+        </section>
             
         <section class="edicao">
             <form action="edicao.php" method="get">
                 <input type="text" name="id" id="identificao" readonly>
                 <input type="text" name="tarefa" id="" placeholder="Tarefa">
                 <input type="text" name="custo" id="" placeholder="Custo">
-                <input type="date" name="data" id="">
+                <input type="date" name="data" id="" placeholder="Data:">
                 <button type="submit">Editar</button>
+                
             </form>
+            
         </section>
         <section class="apagar">
             <p>Deseja apagar a tarefa?</p>
@@ -71,7 +81,7 @@ $lista = $listaDAO->all();
             </section>
         </section>
     </section>
-
+    <p>Carlos Renato G. Filho.</p>
     <script src="script.js"></script>
 </body>
 </html>
