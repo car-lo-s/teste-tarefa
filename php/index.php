@@ -40,6 +40,7 @@ $lista = $listaDAO->all();
                 <th>Editar</th>
                 <th>Apagar</th>
             </tr>
+            <?php if($lista):?>
             <?php foreach ($lista as $tarefa):?>
                 <tr id="row" draggable="true">
                     <td><?= $tarefa->getId(); ?></td>
@@ -51,29 +52,29 @@ $lista = $listaDAO->all();
                     <td onclick="apagar(<?=$tarefa->getId(); ?>)" class="icone dois"><img src="../img/trash.svg" alt=""></td>
                 </tr>
             <?php endforeach;?>
+            <?php endif;?>
         </table>
         <section class="add">
         <form action="adicionar.php" method="get">
-            <input type="text" name="tarefa" id="" placeholder="Nova tarefa: ">
-            <input type="text" name="custo" id="" placeholder="Custo:">
-            <input type="date" name="data" id="">
-            <button type="submit">Adicionar</button>
+            <input required type="text" name="tarefa" id="" placeholder="Nova tarefa: ">
+            <input required type="text" name="custo" id="" placeholder="Custo:">
+            <input required type="date" name="data" id="">
+            <button required type="submit">Adicionar</button>
         </form>
         </section>
             
         <section class="edicao">
             <form action="edicao.php" method="get">
-                <input type="text" name="id" id="identificao" readonly>
-                <input type="text" name="tarefa" id="" placeholder="Tarefa">
-                <input type="text" name="custo" id="" placeholder="Custo">
-                <input type="date" name="data" id="" placeholder="Data:">
+                <input required type="text" name="id" id="identificao" readonly>
+                <input required type="text" name="tarefa" id="" placeholder="Tarefa">
+                <input required type="text" name="custo" id="" placeholder="Custo">
+                <input required type="date" name="data" id="" placeholder="Data:">
                 <button type="submit">Editar</button>
                 
             </form>
             
         </section>
         <section class="apagar">
-            <p>Deseja apagar a tarefa?</p>
             <section>
                 <div class="sim"><a href="">SIM</a></div>
                 

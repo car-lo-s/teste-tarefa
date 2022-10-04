@@ -75,6 +75,9 @@ class listaDAO{
             $sql->execute();
             header("Location: index.php");
             exit;
+        }else{
+            header("Location: index.php");
+            exit;
         }
     }
 }
