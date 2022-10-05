@@ -21,24 +21,34 @@ for(let i of linha){
     }
 }
 
-
-
-const row = document.querySelectorAll("[draggable='true']")
-const localSoltar = document.querySelector("table")
-
-
-function comecarArrastar(){
-    this.classList.add("arrastando")
-}
-function entrouSoltar(){
-    this.classList.add("fundo")
-    const elementoArrastado = document.querySelector(".arrastando")
-    this.appendChild(elementoArrastado)
+let d = document.querySelectorAll('.dinheiro')
+let a
+for(let i of d){
+    a = Number(i.textContent)
+    a = a.toFixed(2)
+    i.innerHTML=a
 }
 
 
-row.forEach((row)=>{
-    row.addEventListener("dragstart",comecarArrastar)
-})
 
-localSoltar.addEventListener("dragover",entrouSoltar)
+
+
+// const row = document.querySelectorAll("[draggable='true']")
+// const localSoltar = document.querySelector("table")
+
+
+// function comecarArrastar(){
+//     this.classList.add("arrastando")
+// }
+// function entrouSoltar(){
+//     this.classList.add("fundo")
+//     const elementoArrastado = document.querySelector(".arrastando")
+//     this.appendChild(elementoArrastado)
+// }
+
+
+// row.forEach((row)=>{
+//     row.addEventListener("dragstart",comecarArrastar)
+// })
+
+// localSoltar.addEventListener("dragover",entrouSoltar)

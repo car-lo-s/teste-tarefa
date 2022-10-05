@@ -45,7 +45,7 @@ $lista = $listaDAO->all();
                 <tr id="row" draggable="true">
                     <td><?= $tarefa->getId(); ?></td>
                     <td><?= $tarefa->getNome(); ?></td>
-                    <td><?= $tarefa->getCusto(); ?></td>
+                    <td class="dinheiro"><?= $tarefa->getCusto(); ?></td>
                     <td><?= $tarefa->getData(); ?></td>
                     <!-- <td><?= $tarefa->getOrdem(); ?></td> -->
                     <td onclick="edicao(<?=$tarefa->getId(); ?>)" class="icone um"><img src="../img/pencil-square.svg" alt=""></td>

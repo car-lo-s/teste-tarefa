@@ -168,7 +168,7 @@ p{
         margin: auto;
     }
     .box th, td{
-        padding: 5px;
+        padding: 3px;
     }
     .add{
         width: 90%;
@@ -186,4 +186,5 @@ p{
         border-bottom: 2px solid lightslategray;
         margin: 3px;
     }
+    
 }
